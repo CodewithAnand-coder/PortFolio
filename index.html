@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personal Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+  <header id="header">
+    <div class="container">
+      <nav>
+        <img src="images/web.png" class="web" alt="Web Logo" />
+        <ul id="sidemenu">
+          <li><a href="#header">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <i class="fas fa-times" onclick="closemenu()"></i>
+        </ul>
+        <i class="fas fa-bars" onclick="openmenu()"></i>
+      </nav>
+      <div class="header-text">
+        <h1>Hi, I'm R N Anand <span></span> from India</h1>
+      </div>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <div class="row">
+        <div class="about-col-1">
+          <img src="images/chintu.jpg" alt="Profile Picture" />
+        </div>
+        <div class="about-col-2">
+          <h1 class="sub-title">About Me</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, amet!</p>
+
+          <div class="tab-titles">
+            <p class="tab-links active-link" onclick="openTab('skills')">Skills</p>
+            <p class="tab-links" onclick="openTab('experience')">Experience</p>
+            <p class="tab-links" onclick="openTab('education')">Education</p>
+          </div>
+
+          <div class="tab-contents active-tab" id="skills">
+            <ul>
+              <li><span>Web Developer:</span> Frontend applications</li>
+              <li><span>Digital Marketing:</span> E-commerce websites</li>
+              <li><span>Data Engineer:</span> Modern data analytics</li>
+            </ul>
+          </div>
+
+          <div class="tab-contents" id="experience">
+            <ul>
+              <li><span>Web Developer:</span> Full Stack Developer</li>
+              <li><span>Digital Marketing:</span> E-commerce strategies</li>
+              <li><span>Data Engineer:</span> Excel, Power BI, Python</li>
+            </ul>
+          </div>
+
+          <div class="tab-contents" id="education">
+            <ul>
+              <li><span>Degree:</span> Bachelor of Computer Applications</li>
+              <li><span>PUC:</span> Science</li>
+              <li><span>Certifications:</span> Digital Marketing - HubSpot Academy, Active leadership and content
+                leadership</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio">
+    <div class="container">
+      <h1 class="sub-title">My Work</h1>
+      <div class="work-list">
+        <div class="work">
+          <img src="images/amazon.webp" alt="Amazon App Preview">
+          <div class="layer">
+            <h3>Social Media App</h3>
+            <p>The app connects you to talented people around the world. Download it from Play Store.</p>
+            <a href="#"><i class="fas fa-external-link-alt"></i></a>
+          </div>
+        </div>
+
+        <div class="work">
+          <img src="images/netflix.jpg" alt="Netflix App Preview">
+          <div class="layer">
+            <h3>Streaming Platform</h3>
+            <p>Watch your favorite shows and movies anytime, anywhere.</p>
+            <a href="#"><i class="fas fa-external-link-alt"></i></a>
+          </div>
+        </div>
+
+        <div class="work">
+          <img src="images/spotify.png" alt="Spotify App Preview">
+          <div class="layer">
+            <h3>Music App</h3>
+            <p>Stream millions of songs and podcasts. Listen on the go.</p>
+            <a href="#"><i class="fas fa-external-link-alt"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <div class="row">
+        <div class="contact-left">
+          <h1 class="sub-title">Contact Me</h1>
+          <p><i class="fas fa-envelope"></i><span> rnanand258@gmail.com</span></p>
+          <p><i class="fas fa-phone"></i><span> 8088816520</span></p>
+          <div class="social-icons">
+            <a href="https://www.facebook.com/profile.php?id=100070304505573"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.linkedin.com/in/r-n-anand-318134361/"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/tommiee_8/"><i class="fab fa-instagram"></i></a>
+          </div>
+          <a href="images/my_cv.pdf" download="my_cv.pdf" class="btn btn2">Download CV</a>
+        </div>
+        <div class="contact-right">
+          <form name="submit-to-google-sheet">
+            <input type="text" name="Name" placeholder="Your Name" required>
+            <input type="email" name="Email" placeholder="Your Email" required>
+            <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+            <button type="submit" class="btn">Submit</button>
+          </form>
+          <span id="msg"></span>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; Anand. Made with <i class="fas fa-heart"></i> by Easy Tutorials</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tab switcher -->
+  <script>
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+
+    function openTab(tabname) {
+      for (let tablink of tablinks) {
+        tablink.classList.remove("active-link");
+      }
+      for (let tabcontent of tabcontents) {
+        tabcontent.classList.remove("active-tab");
+      }
+      event.currentTarget.classList.add("active-link");
+      document.getElementById(tabname).classList.add("active-tab");
+    }
+  </script>
+
+  <!-- Menu toggle -->
+  <script>
+    var sidemenu = document.getElementById("sidemenu");
+    function openmenu() {
+      sidemenu.style.right = "0";
+    }
+
+    function closemenu() {
+      sidemenu.style.right = "-200px";
+    }
+  </script>
+
+  <!-- Form submission to Google Sheet -->
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyQqfJMfYisCG2DT6WyaCzK3gJhpi5ISzh00B4RJTVc4mvLFc3Wb2FIG1kTSTLxK9rw/exec';
+    const form = document.forms['submit-to-google-sheet'];
+    const msg = document.getElementById("msg");
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+        .then(response => {
+          msg.innerHTML = "Message sent successfully";
+          setTimeout(() => {
+            msg.innerHTML = "";
+          }, 5000);
+          form.reset();
+        })
+        .catch(error => console.error('Error!', error.message));
+    });
+  </script>
+
+</body>
+</html>
